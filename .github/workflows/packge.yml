@@ -24,3 +24,9 @@ job:
       with:
         dotnet-version: ${{matriox.dotnet_version}}
         include-prerelease: true
+    - name: run pack
+      run: |
+        ls 
+        echo ${{GITHUB_JOB}}
+        dotnet pack --include-symbols -p:PackageVersion=0.0.${{GITHUB_JOB}}
+        
