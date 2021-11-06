@@ -9,12 +9,11 @@ on:
 jobs:
   packeg-build:
     name: packeg build and push
-    runs-on: ${{matriox.os}}
+    runs-on: ${{matrix.os}}
     strategy:
       matrix:
-      # os: [ubuntu-latest,windows-latest,macOS-latest]
+#         os: [ubuntu-latest, windows-latest, macOS-latest]
         os: [windows-latest]
-
     steps:
     - name: git pull
       uses: actions/checkout@v2
@@ -27,8 +26,8 @@ jobs:
         include-prerelease: true
     - name: run pack
       run: |
-      
         ls  -a 
+        
 #         echo $GITHUB_JOB
 #         dotnet pack --include-symbols -p:PackageVersion=0.0.$GITHUB_JOB
         
