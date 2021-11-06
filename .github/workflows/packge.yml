@@ -31,6 +31,18 @@ jobs:
         ls
         dotnet build
         dotnet pack --include-symbols  -p:PackageVersion=0.0.$GITHUB_RUN_ID
+        dotnet  nuget push "**/*.symbols.nupkg" -k  ${{secrets.NUGET_TOKEN}}   -s https://api.nuget.org/v3/index.json
+    - name: dotnet test
+      run: |
+        echo "-------------------------------------------------------"
+        dotnet test test/MASA.BuildingBlocks.DDD.Domain.Tests/MASA.BuildingBlocks.DDD.Domain.Tests.csproj  /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+        tree test/MASA.BuildingBlocks.DDD.Domain.Tests
+#     - name: publish coverage report to coveralls.io
+#       uses: coverallsapp/github-action@master
+#       with:
+#         gitlab-token: ${{ secrets.NUGET_TOKEN }}
+        
+      
 #         echo $GITHUB_JOB
-#         dotnet pack  --include-symbols  -p:PackageVersion=0.0.$GITHUB_JOB
+#         dotnet pack  --include-symbols  -p:PackageVersion=0.0.$GITHUB_JOB  
         
