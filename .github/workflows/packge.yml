@@ -35,7 +35,7 @@ jobs:
     - name: dotnet test
       run: |
         echo "-------------------------------------------------------"
-        dotnet test test/MASA.BuildingBlocks.DDD.Domain.Tests/MASA.BuildingBlocks.DDD.Domain.Tests.csproj  /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
+        dotnet test test/MASA.BuildingBlocks.DDD.Domain.Tests/MASA.BuildingBlocks.DDD.Domain.Tests.csproj  -r result_file
         tree test/MASA.BuildingBlocks.DDD.Domain.Tests
 #     - name: publish coverage report to coveralls.io
 #       uses: coverallsapp/github-action@master
