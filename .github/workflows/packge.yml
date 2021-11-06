@@ -36,7 +36,7 @@ jobs:
       run: |
         echo "-------------------------------------------------------"
         dotnet test test/MASA.BuildingBlocks.DDD.Domain.Tests/MASA.BuildingBlocks.DDD.Domain.Tests.csproj  -r result_file
-        tree test/MASA.BuildingBlocks.DDD.Domain.Tests
+        tree ./
 #     - name: publish coverage report to coveralls.io
 #       uses: coverallsapp/github-action@master
 #       with:
