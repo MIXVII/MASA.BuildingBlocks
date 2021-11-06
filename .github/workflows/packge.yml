@@ -30,7 +30,7 @@ jobs:
         echo "------------------------------------------------------"
         ls
         dotnet build
-        dotnet pack -include-symbols  -p:PackageVersion=0.0.$GITHUB_RUN_ID
+        dotnet pack --include-symbols  -p:PackageVersion=0.0.$GITHUB_RUN_ID
 #         echo $GITHUB_JOB
 #         dotnet pack  --include-symbols  -p:PackageVersion=0.0.$GITHUB_JOB
         
