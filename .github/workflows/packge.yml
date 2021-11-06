@@ -26,8 +26,11 @@ jobs:
         include-prerelease: true
     - name: run pack
       run: |
-        ls  -a 
-        
+        env
+        echo "------------------------------------------------------"
+        ls
+        dotnet build
+        dotnet pack --incloude-symbols -p:PackageVersion=0.0.$GITHUB_RUN_ID
 #         echo $GITHUB_JOB
 #         dotnet pack --include-symbols -p:PackageVersion=0.0.$GITHUB_JOB
         
