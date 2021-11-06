@@ -18,6 +18,8 @@ jobs:
     steps:
     - name: git pull
       uses: actions/checkout@v2
+    - name: run a one-line script
+      run: env
     - name: setting dotnet version 
       uses: actions/setup-dotnet@v1
       with:
@@ -25,7 +27,8 @@ jobs:
         include-prerelease: true
     - name: run pack
       run: |
-        ls 
-        echo ${{GITHUB_JOB}}
-        dotnet pack --include-symbols -p:PackageVersion=0.0.${{GITHUB_JOB}}
+      
+        ls  -a 
+#         echo $GITHUB_JOB
+#         dotnet pack --include-symbols -p:PackageVersion=0.0.$GITHUB_JOB
         
