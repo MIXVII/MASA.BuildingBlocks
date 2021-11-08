@@ -35,17 +35,17 @@ jobs:
     - name: dotnet test
       run: |
         dotnet test --no-restore --verbosity normal
-    - name: dotnet test repo
-      run: |
-        echo "-------------------------------------------------------"
-        dotnet test test/MASA.BuildingBlocks.DDD.Domain.Tests/MASA.BuildingBlocks.DDD.Domain.Tests.csproj  -r result_file
-        tree ./
+        
+# #     - name: dotnet test repo
+# #       run: |
+# #         echo "-------------------------------------------------------"
+# #         dotnet test test/MASA.BuildingBlocks.DDD.Domain.Tests/MASA.BuildingBlocks.DDD.Domain.Tests.csproj  -r result_file
+# #         tree ./
 #     - name: publish coverage report to coveralls.io
 #       uses: coverallsapp/github-action@master
 #       with:
 #         gitlab-token: ${{ secrets.NUGET_TOKEN }}
-        
-      
 #         echo $GITHUB_JOB
 #         dotnet pack  --include-symbols  -p:PackageVersion=0.0.$GITHUB_JOB  
+#         dotnet nuget push "**/*.symbols.nupkg" -k $nugetkey -s https://api.nuget.org/v3/index.json
         
