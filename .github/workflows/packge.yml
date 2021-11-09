@@ -37,14 +37,11 @@ jobs:
       run: |
         dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
         tree
-#        dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=opencover
-#        dotnet test --logger:"junit"
-       
     - name: pushlist coverage report to coveralls.io
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.CODERALLS_BUILDINGBLOCKS}}
-        path-to-lcov: test/MASA.BuildingBlocks.DDD.Domain.Tests/TestResults/coverage.info
+        path-to-lcov: ./test/MASA.BuildingBlocks.DDD.Domain.Tests/TestResults/coverage.info
         
 #        dotnet test --no-restore --verbosity normal
 
