@@ -42,7 +42,7 @@ jobs:
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.CODERALLS_BUILDINGBLOCKS}}
-        
+        path-to-lcov: ./test.xml
 #        dotnet test --no-restore --verbosity normal
 
         
