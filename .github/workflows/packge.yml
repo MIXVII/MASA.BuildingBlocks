@@ -37,6 +37,7 @@ jobs:
       run: |
         dotnet test /p:CollectCoverage=true /p:CoverletOutput=../../coverage/lcov.info /p:CoverletOutputFormat=lcov
         tree
+        echo ${{ secrets.GITHUB_TOKEN }} ${{ secrets.CODERALLS_BUILDINGBLOCKS }}
 #               dotnet test /p:CollectCoverage=true /p:CoverletOutput=TestResults/ /p:CoverletOutputFormat=lcov
     - name: pushlist coverage report to coveralls.io
       uses: coverallsapp/github-action@master
