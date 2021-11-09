@@ -24,17 +24,20 @@ jobs:
       with:
         dotnet-version: '6.0.x'
         include-prerelease: true
-    - name: run pack
-      run: |
-        env
-        echo "------------------------------------------------------"
-        ls
-        dotnet build
-        dotnet pack --include-symbols  -p:PackageVersion=0.0.$GITHUB_RUN_ID
-        dotnet  nuget push "**/*.symbols.nupkg" -k  ${{secrets.NUGET_TOKEN}}   -s https://api.nuget.org/v3/index.json
+#     - name: run pack
+#       run: |
+#         env
+#         echo "------------------------------------------------------"
+#         ls
+#         dotnet build
+#         dotnet pack --include-symbols  -p:PackageVersion=0.0.$GITHUB_RUN_ID
+#         dotnet  nuget push "**/*.symbols.nupkg" -k  ${{secrets.NUGET_TOKEN}}   -s https://api.nuget.org/v3/index.json
+
     - name: dotnet test
       run: |
-        dotnet test --no-restore --verbosity normal
+        dotnet test --logger:"junit;LogFilePath=./test.xml"
+#        dotnet test --no-restore --verbosity normal
+
         
 # #     - name: dotnet test repo
 # #       run: |
