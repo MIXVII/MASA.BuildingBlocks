@@ -35,14 +35,15 @@ jobs:
 
     - name: dotnet test
       run: |
-        dotnet test --logger:"junit"
-        dotnet test /p:CollectCoverage=true /p:CoverletOutput=../results/ /p:CoverletOutputFormat=opencover
+        dotnet test --collect:"XPlat Code Coverage" 
         tree
+#        dotnet test --logger:"junit"
+#        dotnet test /p:CollectCoverage=true /p:CoverletOutput=../results/ /p:CoverletOutputFormat=opencover
     - name: pushlist coverage report to coveralls.io
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.CODERALLS_BUILDINGBLOCKS}}
-        path-to-lcov: ./TestResults/TestResults.xml
+        path-to-lcov: ./test/MASA.BuildingBlocks.DDD.Domain.Tests/TestResults/**/*
         
 #        dotnet test --no-restore --verbosity normal
 
