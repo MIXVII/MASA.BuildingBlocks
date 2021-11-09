@@ -42,8 +42,10 @@ jobs:
       uses: coverallsapp/github-action@master
       with:
         github-token: ${{ secrets.CODERALLS_BUILDINGBLOCKS}}
-        path-to-lcov: ./test.xml
+        path-to-lcov: test.xml
+        
 #        dotnet test --no-restore --verbosity normal
+
 
         
 # #     - name: dotnet test repo
