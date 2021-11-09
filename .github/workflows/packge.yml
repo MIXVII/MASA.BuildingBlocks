@@ -36,6 +36,7 @@ jobs:
     - name: dotnet test
       run: |
         dotnet test --logger:"junit;LogFilePath=./test.xml"
+        tree test
 #        dotnet test --no-restore --verbosity normal
 
         
